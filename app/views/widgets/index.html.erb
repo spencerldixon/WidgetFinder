@@ -1,7 +1,15 @@
-<h1>All Widgets</h1>
+<div class="jumbotron">
+	<div class="container">
+		<h1>WidgetFinder</h1>
+		<p>Find and buy widgets near you!</p>
+		<p>This application was built using Ruby on Rails, PostgreSQL, Geocoder, Stripe, and Google-Maps-for-Rails</p>
+		<form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" size="40" placeholder="Enter your postcode to find widgets near you...">
+			</div>
+			<button type="submit" class="btn btn-primary btn-lg">Search Widgets!</button>
+		</form>
+	</div>
+</div>
 
-<ul>
-	<% @widgets.each do |widget| %>
-		<li><%= widget.title %></li>
-	<% end %>
-</ul>
+<%= render @widgets %>
