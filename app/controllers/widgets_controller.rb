@@ -1,5 +1,9 @@
 class WidgetsController < ApplicationController
 	def index
-		@widgets = Widget.all
+		if params[:search].present?
+			@widgets = Widget.near(params[:search])
+		else
+			@widgets = Widget.all
+		end
 	end
 end
