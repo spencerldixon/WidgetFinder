@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :widgets, only: [:index]
 
+  post 'widgets/buy/:id', to: 'widgets#buy', as: :buy_widget
+
   # You can have the root of your site routed with "root"
    root 'widgets#index'
 

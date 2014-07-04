@@ -7,7 +7,15 @@
 		<div class="col-lg-6">
 			<div class="col-lg-6">
 				<h3>Price</h3>
-
+				<%= form_tag buy_widget_path(widget) do %>
+	                <script src="https://checkout.stripe.com/v2/checkout.js"
+	                	class="stripe-button"
+	                	data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+	                	data-description="<%= widget.title %>"
+	                	data-amount="<%= widget.price.to_i * 100 %>"
+	                	data-currency="gbp">
+	                </script>
+	            <% end %>
 			</div>
 
 			<div class="col-lg-6">

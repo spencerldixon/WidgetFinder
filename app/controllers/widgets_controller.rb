@@ -3,20 +3,20 @@ class WidgetsController < ApplicationController
 		if params[:search].present?
 			@location = params[:search]
 			@widgets = Widget.near(@location, params[:radius])
-			@hash = Gmaps4rails.build_markers(@widgets) do |widget, marker|
-				marker.lat widget.latitude
-				marker.lng widget.longitude
-			end
 		else
 			@widgets = Widget.all
-			@hash = Gmaps4rails.build_markers(@widgets) do |widget, marker|
-				if widget.latitude.nil? || widget.longitude.nil?
-				else
-				marker.lat widget.latitude
-				marker.lng widget.longitude
-			end
-			end
 		end
+
 		@location ||= request.location
+		@hash = Gmaps4rails.build_markers(@widgets) do |widget, marker|
+			marker.lat widget.latitude
+			marker.lng widget.longitude
+		end
+	end
+
+	def buy
+		@widget = Widget.find(params[:id])
+		# Do logic to handle the purchase of a widget here. Remove it from the database, notify for widget to be shipped etc
+		render 'widgets/success'
 	end
 end
