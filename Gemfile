@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'rails_12factor', group: :production
+gem 'stripe'
 gem 'faker'
 gem 'geocoder'
 gem 'gmaps4rails'

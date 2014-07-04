@@ -4,6 +4,20 @@
 	</div>
 	
 	<div class="panel-body">
-		Description: <%= widget.description %>
+		<div class="col-lg-6">
+			<div class="col-lg-6">
+				<h3>Price</h3>
+
+			</div>
+
+			<div class="col-lg-6">
+				<h3><%= number_to_currency widget.price, :unit => "£" %></h3>
+			</div>
+		</div>
+
+		<div class="col-lg-6">
+			<h3>Widget Description</h3>
+			<%= widget.description %>
+		</div>
 	</div>
 </div>

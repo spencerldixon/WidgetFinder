@@ -4,11 +4,17 @@
 <div class="jumbotron">
 	<div class="container">
 		<h1>WidgetFinder</h1>
-		<p>Find and buy widgets near you!</p>
-		<p>This application was built using Ruby on Rails, PostgreSQL, Geocoder, Stripe, and Google-Maps-for-Rails</p>
+		<h2>Find and buy widgets near you!</h2>
+		<p>This application was built using Ruby on Rails, PostgreSQL, Geocoder, Stripe, and Google-Maps-for-Rails.<br>
+		Try searching for widgets in nottingham in a 50 mile radius.</p>
 		<%= form_tag widgets_path, method: :get do %>
-			<div class="col-lg-10">
+			<div class="col-lg-8">
+				<%= label_tag :search %>
 				<%= text_field_tag :search, params[:search], placeholder: "Enter a place name to find widgets near you...", class: "form-control" %>
+			</div>
+			<div class="col-lg-2">
+				<%= label_tag :radius, 'Radius (Miles)' %>
+				<%= select_tag :radius, options_for_select([10,20,30,50,100,200,500]), class: 'form-control' %>
 			</div>
 			<div class="col-lg-2">
 				<%= submit_tag "Search Widgets!", name: nil, class: "btn btn-primary btn-lg" %>
@@ -36,6 +42,8 @@
 	  markers = handler.addMarkers(<%=raw @hash.to_json %>);
 	  handler.bounds.extendWith(markers);
 	  handler.fitMapToBounds();
-	  handler.getMap().setZoom(15)
+	  <% if @hash.length == 1 %>
+	  	handler.getMap().setZoom(15)
+	  <% end %>
 	});
 </script>
