@@ -2,7 +2,12 @@
 
 An example application of Geocoded data. Sort through widgets by location or postcode and purchase with Stripe.
 
-Live version available here: http://widgetfinder.herokuapp.com/ 
+Live version available here: http://widgetfinder.herokuapp.com/ although I would recommend cloning this and trying it in development, you'll need to set up a secrets.yml file with the following keys:
+
+stripe_secret_key: XXXXXXXXXX
+stripe_publishable_key: XXXXXXXXXX
+
+The live version tends to hit Google's geocoding API query limit quite fast and then stops returning results. Development version doesn't have this issue.
 
 * Rails 4.1 App
 * PostgreSQL
