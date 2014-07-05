@@ -5,8 +5,9 @@
 	<div class="container">
 		<h1>WidgetFinder</h1>
 		<h2>Find and buy widgets near you!</h2>
+
 		<p>This application was built using Ruby on Rails, PostgreSQL, Geocoder, Stripe, and Google-Maps-for-Rails.<br>
-		Try searching for widgets in nottingham in a 50 mile radius, Stripe is being used in development mode, try using 4242 4242 4242 4242 to purchase a widget.</p>
+		<strong>Instructions for use: </strong>Try searching for widgets in nottingham in a 50 mile radius, Stripe is being used in development mode so you can use the test credit card number 4242 4242 4242 4242 to purchase a widget. If no results are being shown, a daily API limit will have likely been hit, try again from a different IP</p>
 		<%= form_tag widgets_path, method: :get do %>
 			<div class="col-lg-8">
 				<%= label_tag :search %>
