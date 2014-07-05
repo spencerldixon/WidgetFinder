@@ -41,9 +41,10 @@
 	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 	  markers = handler.addMarkers(<%=raw @hash.to_json %>);
 	  handler.bounds.extendWith(markers);
-	  handler.fitMapToBounds();
 	  <% if @hash.length == 1 %>
 	  	handler.getMap().setZoom(15)
+	  <% else %>
+	  	handler.fitMapToBounds();
 	  <% end %>
 	});
 </script>
